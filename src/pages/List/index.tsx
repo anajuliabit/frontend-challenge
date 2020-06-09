@@ -1,5 +1,11 @@
 import React from 'react';
 
-const List = () => <div id="page-home" />;
+import Sidebar from '../../components/Sidebar';
+
+const List = () => (
+  <div id="page-home">
+    <Sidebar />
+  </div>
+);
 
 export default List;
