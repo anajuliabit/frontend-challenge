@@ -10,6 +10,7 @@ export const Container = styled.div`
   border-radius: 20px;
   padding: 10px;
   width: 240px;
+  height: auto;
   display: flex;
   margin: 10px 0;
   justify-content: space-between;
@@ -17,8 +18,17 @@ export const Container = styled.div`
   div {
       display: flex;
 
+      .image {
+        border: 1px solid #DBDBDB;
+        border-radius: 14px;
+        opacity: 1;
+        padding: 4px;
+      }
+
       img {
-          width: 50px;
+          width: 64px;
+          height: 64px;
+          background: transparent url('img/venusaur.png') 0% 0% no-repeat padding-box;
       }
 
       section {
@@ -36,7 +46,6 @@ export const Container = styled.div`
            justify-content: center;
            align-items: center;
            background-color: ${purple};
-           border-box: 1px solid ${purple};
            color: ${white};
            font-size: 14px;
            font-weight: bold;

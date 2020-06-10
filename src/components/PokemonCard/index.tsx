@@ -10,7 +10,9 @@ interface Props {
 const PokemonCard: React.FC<Props> = ({ pokemon }) => (
   <Container>
     <div>
-      <img src={pokemon.image} alt={pokemon.name} />
+      <div className="image">
+        <img src={pokemon.image} alt={pokemon.name} />
+      </div>
       <section>
         <strong>{pokemon.name}</strong>
         <p>Grass, Poison</p>

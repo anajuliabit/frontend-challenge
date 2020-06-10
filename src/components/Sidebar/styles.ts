@@ -4,6 +4,7 @@ import { grey, blue, greyDark } from '../../assets/styles/colors';
 
 export const Container = styled.div`
   width: 15vw;
+  margin: 5vh 0;
    header {
     display: flex;
     section {

@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-import { greyLigth, greyDark, blue } from '../../assets/styles/colors';
+import { greyLight, greyDark, blue } from '../../assets/styles/colors';
 
 export const Container = styled.div`
     display: flex;
-    margin: 10vh 5vh;
+    margin: 5vh;
 
     .list {
-        background-color: ${greyLigth};
-        border-box: 1px solid ${greyLigth};
+        background-color: ${greyLight};
         border-radius: 20px;
         padding: 20px;
         width: 40vw;
