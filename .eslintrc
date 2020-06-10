@@ -1,7 +1,7 @@
 // .eslintrc
 {
-  "plugins": ["prettier", "@typescript-eslint"],
-  "extends": ["airbnb-typescript", "react-app"],
+  "plugins": ["prettier", "@typescript-eslint", "react"],
+  "extends": ["airbnb-typescript", "react-app", "eslint:recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -21,7 +21,12 @@
       "typescript": {
         "alwaysTryTypes": true
       }
-    }
+    },
+    "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "tsx": true
+    },
+    "sourceType": "module"
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],

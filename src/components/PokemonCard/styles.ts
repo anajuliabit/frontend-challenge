@@ -12,7 +12,7 @@ export const Container = styled.div`
   width: 240px;
   height: auto;
   display: flex;
-  margin: 10px 0;
+  margin: 10px 5px;
   justify-content: space-between;
 
   div {
