@@ -1,19 +1,23 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Bulbasaur from '../../assets/bulbasaur.png';
+import Pokemon from '../../shared/interfaces/Pokemon';
 
-const PokemonCard = () => (
+interface Props {
+  pokemon: Pokemon
+}
+
+const PokemonCard: React.FC<Props> = ({ pokemon }) => (
   <Container>
     <div>
-      <img src={Bulbasaur} />
+      <img src={pokemon.image} alt={pokemon.name} />
       <section>
-        <strong>Bulbasaur</strong>
+        <strong>{pokemon.name}</strong>
         <p>Grass, Poison</p>
-        <div className="totalizer">951</div>
+        <div className="totalizer">{pokemon.maxCP}</div>
       </section>
     </div>
-    <p>001</p>
+    <p>{pokemon.number}</p>
   </Container>
 );
 

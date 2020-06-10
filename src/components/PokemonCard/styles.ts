@@ -16,34 +16,38 @@ export const Container = styled.div`
 
   div {
       display: flex;
+
+      img {
+          width: 50px;
+      }
+
+      section {
+        margin-left: 15px;
+        strong {
+        color: ${greyDark};
+        }
+        p {
+          font-size: 12px;
+          color: ${grey};
+          margin: 2px 0 10px 0;
+        }
+        .totalizer {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           background-color: ${purple};
+           border-box: 1px solid ${purple};
+           color: ${white};
+           font-size: 14px;
+           font-weight: bold;
+           border-radius: 4px; 
+           width: 54px;
+           height: 19px;
+           opacity: 1;
+       }
+     }
   }
   
-  section {
-     margin-left: 15px;
-     strong {
-     color: ${greyDark};
-     }
-     p {
-       font-size: 12px;
-       color: ${grey};
-       margin: 2px 0 10px 0;
-     }
-     .totalizer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: ${purple};
-        border-box: 1px solid ${purple};
-        color: ${white};
-        font-size: 14px;
-        font-weight: bold;
-        border-radius: 4px; 
-        width: 54px;
-        height: 19px;
-        opacity: 1;
-    }
-  }
-
   p {
       font-size: 12px;
       color: ${grey};
