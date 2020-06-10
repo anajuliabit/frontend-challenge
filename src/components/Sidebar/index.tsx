@@ -42,7 +42,7 @@ const Sidebar = () => {
   ];
 
   const renderItem = (item: MenuItem) => (
-    <section className="menuItem">
+    <section key={item.name} className="menuItem">
       <img src={item.icon} alt={item.alt} />
       <p>{item.name}</p>
     </section>

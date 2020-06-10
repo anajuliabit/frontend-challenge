@@ -31,6 +31,7 @@ export const Container = styled.div`
      .totalizer {
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: ${purple};
         border-box: 1px solid ${purple};
         color: ${white};
