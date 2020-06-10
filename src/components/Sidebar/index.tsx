@@ -13,13 +13,6 @@ interface MenuItem {
 }
 
 const Sidebar = () => {
-  const renderItem = (item: MenuItem) => (
-    <section className="menuItem">
-      <img src={item.icon} alt={item.alt} />
-      <p>{item.name}</p>
-    </section>
-  );
-
   const items: MenuItem[] = [
     {
       name: 'Lista',
@@ -47,6 +40,13 @@ const Sidebar = () => {
       alt: 'Ícone de configuração'
     }
   ];
+
+  const renderItem = (item: MenuItem) => (
+    <section className="menuItem">
+      <img src={item.icon} alt={item.alt} />
+      <p>{item.name}</p>
+    </section>
+  );
 
   return (
     <Container>

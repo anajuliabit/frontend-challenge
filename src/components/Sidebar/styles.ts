@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-import { grey, blue } from '../../assets/styles/colors';
+import { grey, blue, greyDark } from '../../assets/styles/colors';
 
 export const Container = styled.div`
   width: 15vw;
-  margin: 10vh 5vh;
-  header {
+   header {
     display: flex;
     section {
       margin: 5px 10px;
+    }
+    strong {
+        color: ${greyDark};
     }
     p {
       font-size: 12px;
@@ -36,7 +38,6 @@ export const Container = styled.div`
       img {
           width: 30px;
       }
-      
       p, img {
         :hover {
             color: ${blue};
