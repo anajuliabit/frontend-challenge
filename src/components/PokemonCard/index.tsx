@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Pokemon from '../../shared/interfaces/Pokemon';
+import Pokemon from '../../shared/Pokemon';
 import { blue, orange, purple, yellow } from '../../assets/styles/colors';
 
 interface Props {

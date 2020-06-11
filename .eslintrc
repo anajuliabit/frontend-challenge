@@ -58,6 +58,7 @@
         "ignoreRestArgs": true
       }
     ],
+    "@typescript-eslint/lines-between-class-members": ["error", { "exceptAfterOverload": true }],
     "max-len": [
       "warn",
       {

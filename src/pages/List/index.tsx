@@ -7,7 +7,7 @@ import Loader from 'react-loader-spinner';
 import { valueBelongSet } from '../../utils/valueBelongSet';
 import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
-import Pokemon from '../../shared/interfaces/Pokemon';
+import Pokemon from '../../shared/Pokemon';
 import InputRange from '../../components/InputRange';
 
 import { Container, Content } from './styles';
