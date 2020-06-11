@@ -4,10 +4,11 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Loader from 'react-loader-spinner';
 
+import InputRange from 'react-input-range';
 import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
-import { Container } from './styles';
 import Pokemon from '../../shared/interfaces/Pokemon';
+import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
 
 const POKEMONS = gql`
@@ -29,7 +30,7 @@ const List = () => {
   return (
     <Container>
       <Sidebar />
-      <section className="list">
+      <Content>
         {loading ? (
           <div className="loader">
             <Loader type="Oval" color={blue} />
@@ -47,7 +48,15 @@ const List = () => {
             </section>
           </>
         )}
-      </section>
+      </Content>
+      <Content height="30vh" width="35vw">
+        <header>
+          <h1>Filtro</h1>
+        </header>
+        <section>
+          <InputRange maxValue={100} minValue={10} value={50} onChange={(value) => console.log} />
+        </section>
+      </Content>
     </Container>
   );
 };
