@@ -8,7 +8,7 @@ export class Type extends GenericEnum {
   static readonly Flying = new Type('FLYING', 'Flying');
   static readonly Grass = new Type('GRASS', 'Grass');
   static readonly Poison = new Type('POISON', 'Poison');
-  static readonly Electric = new Type('ELETRIC', 'Eletric');
+  static readonly Electric = new Type('ELECTRIC', 'Electric');
   static readonly Ground = new Type('GROUND', 'Ground');
   static readonly Psychic = new Type('PSYCHIC', 'Psychic');
   static readonly Rock = new Type('ROCK', 'Rock');

@@ -36,6 +36,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "operator-linebreak": ["warn", "after"],
     "object-curly-spacing": ["warn", "always"],
     "object-curly-newline": ["warn", "never"],
     "no-unused-vars": [

@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 import Pokemon from '../../shared/Pokemon';
 import { blue, orange, purple, yellow } from '../../assets/styles/colors';
+import { Type } from '../../shared/Type';
 
 interface Props {
   pokemon: Pokemon;
@@ -29,7 +30,7 @@ const PokemonCard: React.FC<Props> = ({ pokemon }) => {
         </div>
         <section>
           <strong>{pokemon.name}</strong>
-          <p>Grass, Poison</p>
+          <p>{pokemon.types.map((type: Type) => type.label).join(',')}</p>
           <div className="totalizer">{pokemon.maxCP}</div>
         </section>
       </div>

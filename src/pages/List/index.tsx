@@ -12,6 +12,7 @@ import InputRange from '../../components/InputRange';
 
 import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
+import { Type } from '../../shared/Type';
 
 const POKEMONS = gql`
   {
@@ -31,10 +32,14 @@ const List = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>((data && data.pokemons) || []);
 
   useEffect(() => {
-    setPokemons(
-      (data && data.pokemons.filter((p: Pokemon) => valueBelongSet(p.maxCP, range))) || []
-    );
-  }, [range, data]);
+    if (!loading && data) {
+      data.pokemons = data.pokemons.map((response: any) => {
+        response.types = (response.types || []).map((type: string) => Type.get(type.toUpperCase()));
+        return response;
+      });
+      setPokemons(data.pokemons);
+    }
+  }, [data]);
 
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
@@ -44,6 +49,8 @@ const List = () => {
     newValue: number | number[]
   ): void => {
     setRange(newValue as number[]);
+    setPokemons(data.pokemons.filter((p: Pokemon) => valueBelongSet(p.maxCP, range)) || []);
+    console.log(pokemons);
   };
 
   return (
