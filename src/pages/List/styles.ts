@@ -46,6 +46,7 @@ export const Content = styled('section')<{
     margin: 20px 0;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    align-content: flex-start;
 
     @media ${device.desktop} {
       height: 90%;

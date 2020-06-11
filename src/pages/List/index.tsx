@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Loader from 'react-loader-spinner';
 
+import { valueBelongSet } from '../../utils/valueBelongSet';
 import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
 import Pokemon from '../../shared/interfaces/Pokemon';
@@ -27,6 +28,14 @@ const POKEMONS = gql`
 const List = () => {
   const { loading, error, data } = useQuery(POKEMONS);
   const [range, setRange] = useState<number[]>([0, 4000]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>((data && data.pokemons) || []);
+
+  useEffect(() => {
+    setPokemons(
+      (data && data.pokemons.filter((p: Pokemon) => valueBelongSet(p.maxCP, range))) || []
+    );
+  }, [range, data]);
+
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
 
@@ -49,10 +58,10 @@ const List = () => {
           <>
             <header>
               <h1>Lista de pokémons</h1>
-              <strong>Total visíveis: {data.pokemons.length}</strong>
+              <strong>Total visíveis: {pokemons.length}</strong>
             </header>
             <section className="items">
-              {data.pokemons.map((pokemon: Pokemon) => (
+              {pokemons.map((pokemon: Pokemon) => (
                 <PokemonCard key={pokemon.number} pokemon={pokemon} />
               ))}
             </section>

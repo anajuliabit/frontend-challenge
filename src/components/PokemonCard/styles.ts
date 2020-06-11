@@ -8,7 +8,7 @@ export const Container = styled('div')<{ color?: string }>`
   border-radius: 20px;
   padding: 10px;
   width: 240px;
-  height: auto;
+  height: 95px;
   display: flex;
   margin: 10px 5px;
   justify-content: space-between;
@@ -26,7 +26,6 @@ export const Container = styled('div')<{ color?: string }>`
     img {
       width: 64px;
       height: 64px;
-      background: transparent url('img/venusaur.png') 0% 0% no-repeat padding-box;
     }
 
     section {
