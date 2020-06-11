@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { white, grey, greyDark, purple, blue, orange, yellow } from '../../assets/styles/colors';
+import { white, grey, greyDark, blue } from '../../assets/styles/colors';
 
 export const Container = styled('div')<{ color?: string }>`
   background-color: ${white};

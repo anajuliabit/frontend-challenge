@@ -57,9 +57,7 @@ const Sidebar = () => {
           <p>Pokémon Manager</p>
         </section>
       </header>
-      <section className="menu">
-        {items.map((item) => renderItem(item))}
-      </section>
+      <section className="menu">{items.map((item) => renderItem(item))}</section>
     </Container>
   );
 };
