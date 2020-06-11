@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import Loader from 'react-loader-spinner';
 
-import InputRange from 'react-input-range';
 import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
 import Pokemon from '../../shared/interfaces/Pokemon';
+import InputRange from '../../components/InputRange';
+
 import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
 
@@ -25,7 +26,16 @@ const POKEMONS = gql`
 
 const List = () => {
   const { loading, error, data } = useQuery(POKEMONS);
+  const [range, setRange] = useState<number[]>([0, 4000]);
+  // @TODO tratar erro
   if (error) return <p>Error :(</p>;
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    newValue: number | number[]
+  ): void => {
+    setRange(newValue as number[]);
+  };
 
   return (
     <Container>
@@ -54,7 +64,7 @@ const List = () => {
           <h1>Filtro</h1>
         </header>
         <section>
-          <InputRange maxValue={100} minValue={10} value={50} onChange={(value) => console.log} />
+          <InputRange value={range} handleChange={handleChange} />
         </section>
       </Content>
     </Container>
