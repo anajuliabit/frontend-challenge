@@ -1,5 +1,5 @@
 export default class GenericEnum {
-  constructor(public key: string, public readonly label: string) {}
+  constructor(public key: string, public readonly label: string, public checked?: boolean) {}
 
   public static get(keyString: string): GenericEnum | null {
     for (const key in this) {

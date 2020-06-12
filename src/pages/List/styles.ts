@@ -24,7 +24,7 @@ export const Content = styled('section')<{
   position: relative;
 
   @media ${device.desktop} {
-    width: ${(props) => (props.widthDesktop ? props.widthDesktop : '45vw')};
+    width: ${(props) => (props.widthDesktop ? props.widthDesktop : props.width)};
   }
   header {
     margin-left: 5%;
@@ -57,5 +57,16 @@ export const Content = styled('section')<{
     position: absolute;
     top: 45%;
     left: 45%;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+
+    .types {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
   }
 `;

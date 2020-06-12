@@ -9,6 +9,7 @@ import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
 import Pokemon from '../../shared/Pokemon';
 import InputRange from '../../components/InputRange';
+import CheckboxList from '../../components/CheckboxList';
 
 import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
@@ -30,6 +31,7 @@ const List = () => {
   const { loading, error, data } = useQuery(POKEMONS);
   const [range, setRange] = useState<number[]>([0, 4000]);
   const [pokemons, setPokemons] = useState<Pokemon[]>((data && data.pokemons) || []);
+  const [types, setTypes] = useState<Array<Type> | []>(Type.toArray());
 
   useEffect(() => {
     if (!loading && data) {
@@ -44,13 +46,23 @@ const List = () => {
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
 
-  const handleChange = (
+  const handleRangeChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     newValue: number | number[]
   ): void => {
     setRange(newValue as number[]);
     setPokemons(data.pokemons.filter((p: Pokemon) => valueBelongSet(p.maxCP, range)) || []);
-    console.log(pokemons);
+  };
+
+  const handleTypesChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newType: Type | undefined = types.find((t: Type) => t.key === event?.target?.name);
+    if (newType) {
+      newType.checked = event?.target?.checked;
+      setTypes([...types, newType]);
+      setPokemons(
+        pokemons.filter((pokemon: Pokemon) => types.some((t: Type) => pokemon.types.includes(t)))
+      );
+    }
   };
 
   return (
@@ -75,12 +87,13 @@ const List = () => {
           </>
         )}
       </Content>
-      <Content height="30vh" width="35vw">
+      <Content height="50vh" width="35vw">
         <header>
           <h1>Filtro</h1>
         </header>
-        <section>
-          <InputRange value={range} handleChange={handleChange} />
+        <section className="filters">
+          <InputRange value={range} handleChange={handleRangeChange} />
+          <CheckboxList types={types} handleClick={handleTypesChange} />
         </section>
       </Content>
     </Container>

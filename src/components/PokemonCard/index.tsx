@@ -22,18 +22,19 @@ const PokemonCard: React.FC<Props> = ({ pokemon }) => {
     }
     return blue;
   };
+
   return (
     <Container color={getColor(pokemon.maxCP)}>
-      <div>
+      <section>
         <div className="image">
           <img src={pokemon.image} alt={pokemon.name} />
         </div>
-        <section>
+        <div>
           <strong>{pokemon.name}</strong>
-          <p>{pokemon.types.map((type: Type) => type.label).join(',')}</p>
+          <p>{pokemon.types.map((type: Type) => type.label).join(', ')}</p>
           <div className="totalizer">{pokemon.maxCP}</div>
-        </section>
-      </div>
+        </div>
+      </section>
       <p>{pokemon.number}</p>
     </Container>
   );

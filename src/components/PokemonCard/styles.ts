@@ -13,7 +13,7 @@ export const Container = styled('div')<{ color?: string }>`
   margin: 10px 5px;
   justify-content: space-between;
 
-  div {
+  section {
     display: flex;
 
     .image {
@@ -28,7 +28,7 @@ export const Container = styled('div')<{ color?: string }>`
       height: 64px;
     }
 
-    section {
+    div {
       margin-left: 15px;
       strong {
         color: ${greyDark};
