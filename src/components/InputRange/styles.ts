@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Slider } from '@material-ui/core';
-import { blue, green, white } from '../../assets/styles/colors';
+import { green, white, borderColor } from '../../assets/styles/colors';
 
 export const Container = styled.div`
   padding: 20px;
@@ -27,7 +27,7 @@ export const SliderCustom = styled(Slider)`
     .rail {
       height: 10px;
       border-radius: 4px;
-      background-color: #dbdbdb;
+      background-color: ${borderColor};
     }
   }
 `;

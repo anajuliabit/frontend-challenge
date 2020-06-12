@@ -62,16 +62,18 @@ const List = () => {
   };
 
   const applyFilter = (): void => {
-    setPokemons(
-      data.pokemons.filter(
-        (p: Pokemon) =>
-          valueBelongSet(p.maxCP, range) &&
-          filterType(
-            p.types,
-            types.filter((t: Type) => t.checked)
-          )
-      )
-    );
+    if (!loading && data) {
+      setPokemons(
+        data.pokemons.filter(
+          (p: Pokemon) =>
+            valueBelongSet(p.maxCP, range) &&
+            filterType(
+              p.types,
+              types.filter((t: Type) => t.checked)
+            )
+        )
+      );
+    }
   };
 
   return (

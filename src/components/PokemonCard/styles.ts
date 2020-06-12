@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { white, grey, greyDark, blue } from '../../assets/styles/colors';
+import { white, grey, greyDark, blue, borderColor } from '../../assets/styles/colors';
 
 export const Container = styled('div')<{ color?: string }>`
   background-color: ${white};
@@ -17,7 +17,7 @@ export const Container = styled('div')<{ color?: string }>`
     display: flex;
 
     .image {
-      border: 1px solid #dbdbdb;
+      border: 1px solid ${borderColor};
       border-radius: 14px;
       opacity: 1;
       padding: 4px;
