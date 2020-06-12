@@ -1,14 +1,7 @@
 // .eslintrc
 {
   "plugins": ["prettier", "@typescript-eslint", "react"],
-  "extends": [
-    "prettier",
-    "airbnb-typescript",
-    "react-app",
-    "eslint:recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
+  "extends": ["prettier", "airbnb-typescript", "react-app", "eslint:recommended", "plugin:import/errors", "plugin:import/warnings"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -39,6 +32,7 @@
     "operator-linebreak": ["warn", "after"],
     "object-curly-spacing": ["warn", "always"],
     "object-curly-newline": ["warn", "never"],
+    "implicit-arrow-linebreak": "off",
     "no-param-reassign": ["warn", { "props": false }],
     "no-unused-vars": [
       "warn",
@@ -80,13 +74,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.test.jsx",
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "src/tests/**/*"
-        ]
+        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*"]
       }
     ],
     "react/jsx-props-no-spreading": "off",

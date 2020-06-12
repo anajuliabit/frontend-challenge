@@ -14,6 +14,7 @@ import CheckboxList from '../../components/CheckboxList';
 import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
 import { Type } from '../../shared/Type';
+import { filterType } from '../../utils/filterType';
 
 const POKEMONS = gql`
   {
@@ -46,12 +47,9 @@ const List = () => {
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
 
-  const handleRangeChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    newValue: number | number[]
-  ): void => {
+  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number | number[]): void => {
     setRange(newValue as number[]);
-    setPokemons(data.pokemons.filter((p: Pokemon) => valueBelongSet(p.maxCP, range)) || []);
+    applyFilter();
   };
 
   const handleTypesChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -59,10 +57,21 @@ const List = () => {
     if (newType) {
       newType.checked = event?.target?.checked;
       setTypes([...types, newType]);
-      setPokemons(
-        pokemons.filter((pokemon: Pokemon) => types.some((t: Type) => pokemon.types.includes(t)))
-      );
+      applyFilter();
     }
+  };
+
+  const applyFilter = (): void => {
+    setPokemons(
+      data.pokemons.filter(
+        (p: Pokemon) =>
+          valueBelongSet(p.maxCP, range) &&
+          filterType(
+            p.types,
+            types.filter((t: Type) => t.checked)
+          )
+      )
+    );
   };
 
   return (
