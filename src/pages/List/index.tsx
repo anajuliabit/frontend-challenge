@@ -42,7 +42,7 @@ const List = () => {
       });
       setPokemons(data.pokemons);
     }
-  }, [data]);
+  }, [data, loading]);
 
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
