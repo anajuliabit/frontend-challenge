@@ -37,7 +37,6 @@ export const Container = styled.div`
 
 export const SliderCustom = styled(Slider)`
   && {
-    max-width: 400px;
     margin-bottom: 10px;
     color: ${green};
     .track {

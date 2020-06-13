@@ -17,14 +17,14 @@ export const Content = styled('section')<{
 }>`
   background-color: ${greyLight};
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 5px;
   margin: 0 20px;
   width: ${(props) => (props.width ? props.width : '40vw')};
   height: ${(props) => (props.height ? props.height : '90vh')};
   position: relative;
 
   @media ${device.desktop} {
-    width: ${(props) => (props.widthDesktop ? props.widthDesktop : props.width)};
+    width: ${(props) => (props.widthDesktop ? props.widthDesktop : '45vw')};
   }
   header {
     margin-left: 5%;
@@ -47,6 +47,7 @@ export const Content = styled('section')<{
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-content: flex-start;
+    overflow-x: hidden;
 
     @media ${device.desktop} {
       height: 90%;

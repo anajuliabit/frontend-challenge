@@ -116,7 +116,7 @@ const List = () => {
           </>
         )}
       </Content>
-      <Content height="auto" width="35vw">
+      <Content height="auto" width="35vw" widthDesktop="40vw">
         <header>
           <h1>Filtro</h1>
         </header>
