@@ -11,7 +11,7 @@ Este projeto foi desenvolvido para um desafio frontend cujo objetivo era obter o
 
 - Execute `npm i`
 - Execute `npm start`
-- O projeto aplicacão disponível em http://localhost:3000
+- O projeto disponível em http://localhost:3000
 
 ## A fazer
 
@@ -20,4 +20,4 @@ Este projeto foi desenvolvido para um desafio frontend cujo objetivo era obter o
 - [ ] Tornar a aplicacão responsiva
 
 ## Fonte de dados
-A API utilizada esta disponível neste [link](https://graphql-pokemon.now.sh/)
+A API utilizada esta disponível neste [link](https://graphql-pokemon.now.sh/).
