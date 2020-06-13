@@ -48,7 +48,7 @@ export const CheckboxCustom = styled(Checkbox)`
     }
 
     .checked-icon {
-      border: 3px solid ${blue};
+      border: 2px solid ${blue};
       border-radius: 6px;
       box-shadow: 0px 0px 6px #00C1FD99;
       background-color: white;

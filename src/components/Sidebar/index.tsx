@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   const renderItem = (item: MenuItem) => (
     <MenuItem active={item.active} key={item.name} className="menuItem">
-      <img src={item.icon} alt={item.alt} />
+      <img className="icon" src={item.icon} alt={item.alt} />
       <p>{item.name}</p>
     </MenuItem>
   );
