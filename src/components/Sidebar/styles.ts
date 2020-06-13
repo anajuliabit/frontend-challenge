@@ -28,23 +28,25 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: space-between;
   }
-  .menuItem {
-    display: flex;
-    margin: 10px 0;
+`;
 
-    p {
-      color: ${grey};
-      margin: 15px;
-    }
-    img {
-      width: 30px;
-    }
-    p,
-    img {
-      :hover {
-        color: ${blue};
-        cursor: pointer;
-      }
+export const MenuItem = styled.div<{ active?: boolean }>`
+  display: flex;
+  margin: 10px 0;
+
+  p {
+    color: ${(props) => (props?.active ? blue : grey)};
+    margin: 15px;
+  }
+  img {
+    width: 30px;
+    size: 30px;
+  }
+  p,
+  img {
+    :hover {
+      color: ${blue};
+      cursor: pointer;
     }
   }
 `;

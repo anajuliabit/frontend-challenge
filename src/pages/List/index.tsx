@@ -47,7 +47,7 @@ const List = () => {
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
 
-  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number | number[]): void => {
+  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number[]): void => {
     setRange(newValue as number[]);
     applyFilter();
   };
@@ -76,6 +76,14 @@ const List = () => {
     }
   };
 
+  const changeMin = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setRange(range.splice(0, 1, Number(event.target.value)));
+  };
+
+  const changeMax = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setRange(range.splice(range.length - 1, 1, Number(event.target.value)));
+  };
+
   return (
     <Container>
       <Sidebar />
@@ -98,12 +106,12 @@ const List = () => {
           </>
         )}
       </Content>
-      <Content height="50vh" width="35vw">
+      <Content height="60vh" width="35vw">
         <header>
           <h1>Filtro</h1>
         </header>
         <section className="filters">
-          <InputRange value={range} handleChange={handleRangeChange} />
+          <InputRange value={range} handleChange={handleRangeChange} changeMin={changeMin} changeMax={changeMax} />
           <CheckboxList types={types} handleClick={handleTypesChange} />
         </section>
       </Content>

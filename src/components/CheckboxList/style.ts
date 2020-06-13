@@ -1,10 +1,21 @@
 import styled from 'styled-components';
-import { Checkbox, FormControlLabel } from '@material-ui/core';
+import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 
 import { blue, borderColor, greyDark } from '../../assets/styles/colors';
 
+export const FormGroupCustom = styled(FormGroup)`
+  row {
+    display: flex;
+    width: 100%;
+    align-items: space-between;
+    flex-wrap: wrap;
+  }
+`;
+
 export const FormControlLabelCustom = styled(FormControlLabel)<{ checked: boolean }>`
-  color: ${(props) => (props.checked ? blue : greyDark)};
+  && {
+    color: ${(props) => (props.checked ? blue : greyDark)};
+  }
 `;
 
 export const CheckboxCustom = styled(Checkbox)`

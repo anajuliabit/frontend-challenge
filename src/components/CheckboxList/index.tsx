@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { FormGroup, FormControlLabel } from '@material-ui/core';
 import { FaCheck } from 'react-icons/fa';
 import { Type } from '../../shared/Type';
-import { CheckboxCustom, FormControlLabelCustom } from './style';
+import { CheckboxCustom, FormControlLabelCustom, FormGroupCustom } from './style';
 
 interface Props {
   types: Array<Type>;
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const CheckboxList: React.FC<Props> = ({ types, handleClick }) => (
-  <FormGroup row>
+  <FormGroupCustom row classes={{ row: 'row' }}>
     {Type.toArray().map((type: Type) => (
       <FormControlLabelCustom
         checked={types.find((t: Type) => t.key === type.key)?.checked || false}
@@ -33,7 +32,7 @@ const CheckboxList: React.FC<Props> = ({ types, handleClick }) => (
         }
       />
     ))}
-  </FormGroup>
+  </FormGroupCustom>
 );
 
 export default CheckboxList;

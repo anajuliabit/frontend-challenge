@@ -17,7 +17,7 @@ export const Content = styled('section')<{
 }>`
   background-color: ${greyLight};
   border-radius: 20px;
-  padding: 20px 0;
+  padding: 20px;
   margin: 0 20px;
   width: ${(props) => (props.width ? props.width : '40vw')};
   height: ${(props) => (props.height ? props.height : '90vh')};
@@ -61,7 +61,11 @@ export const Content = styled('section')<{
 
   .filters {
     display: flex;
+    height: 90%;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 20px;
 
     .types {
       display: flex;
