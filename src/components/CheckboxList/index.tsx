@@ -12,7 +12,7 @@ interface Props {
 const CheckboxList: React.FC<Props> = ({ types, handleClick }) => (
   <Container>
     <span>Types</span>
-    <FormGroupCustom row classes={{ row: 'row' }}>
+    <FormGroupCustom row>
       {Type.toArray().map((type: Type) => (
         <FormControlLabelCustom
           checked={types.find((t: Type) => t.key === type.key)?.checked || false}

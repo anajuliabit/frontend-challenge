@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { white, grey, greyDark, blue, borderColor } from '../../assets/styles/colors';
+import { grey, greyDark, blue, borderColor } from '../../assets/styles/colors';
 
 export const Container = styled('div')<{ color?: string }>`
-  background-color: ${white};
-  border-box: 1px solid ${white};
+  background-color: white;
+  border-box: 1px solid white;
   border-radius: 20px;
   padding: 10px;
   width: 240px;
@@ -15,6 +15,7 @@ export const Container = styled('div')<{ color?: string }>`
 
   section {
     display: flex;
+    justify-content: flex-start;
 
     .image {
       border: 1px solid ${borderColor};
@@ -28,7 +29,7 @@ export const Container = styled('div')<{ color?: string }>`
       height: 64px;
     }
 
-    div {
+    .details {
       margin-left: 15px;
       strong {
         color: ${greyDark};
@@ -43,7 +44,7 @@ export const Container = styled('div')<{ color?: string }>`
         justify-content: center;
         align-items: center;
         background-color: ${(props) => (props.color ? props.color : blue)};
-        color: ${white};
+        color: white;
         font-size: 14px;
         font-weight: bold;
         border-radius: 4px;

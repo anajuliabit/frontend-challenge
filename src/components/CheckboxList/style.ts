@@ -6,7 +6,9 @@ import { blue, borderColor, greyDark, grey } from '../../assets/styles/colors';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 
   & > span {
     color: ${grey};
@@ -15,17 +17,22 @@ export const Container = styled.div`
 `;
 
 export const FormGroupCustom = styled(FormGroup)`
-  row {
+  && {
     display: flex;
+    height: 240px;
     width: 100%;
     align-items: space-between;
+    justify-content: flex-start;
+    align-content: space-between;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 `;
 
 export const FormControlLabelCustom = styled(FormControlLabel)<{ checked: boolean }>`
   && {
     color: ${(props) => (props.checked ? blue : greyDark)};
+    margin-right: 10%;
   }
 `;
 
@@ -44,6 +51,7 @@ export const CheckboxCustom = styled(Checkbox)`
       border: 3px solid ${blue};
       border-radius: 6px;
       box-shadow: 0px 0px 6px #00C1FD99;
+      background-color: white;
       width: 20px;
       height: 20px;
       display: flex;
@@ -51,7 +59,6 @@ export const CheckboxCustom = styled(Checkbox)`
       justify-content: center;
 
       .icon {
-
           box-shadow: 0px 0px 6px #00C1FD99;
           border-box: 1px solid ${blue};
           width: 16px;

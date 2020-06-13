@@ -66,7 +66,8 @@ const List = () => {
       setRange([minCP, maxCP]);
       applyFilter();
     }
-  }, [minCP, maxCP, applyFilter]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [minCP, maxCP]);
 
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;

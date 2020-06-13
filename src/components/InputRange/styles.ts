@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Slider } from '@material-ui/core';
-import { green, white, borderColor, grey } from '../../assets/styles/colors';
+import { green, borderColor, grey } from '../../assets/styles/colors';
 
 export const Container = styled.div`
   padding: 20px 0;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: space-between;
 
-  span {
+  & > span {
     color: ${grey};
     font-size: 14px;
   }
@@ -45,7 +45,7 @@ export const SliderCustom = styled(Slider)`
       background-color: ${green};
     }
     .thumb {
-      background-color: ${white};
+      background-color: white;
       height: 18px;
       width: 18px;
     }

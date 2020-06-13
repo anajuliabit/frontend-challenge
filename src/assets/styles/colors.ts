@@ -5,6 +5,5 @@ export const blue = '#00A7FD';
 export const purple = '#662C91';
 export const yellow = '#F5B700';
 export const orange = '#F87060';
-export const white = '#FFFFFF';
 export const green = '#04E762';
 export const borderColor = '#DBDBDB';

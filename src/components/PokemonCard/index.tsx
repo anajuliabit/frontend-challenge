@@ -29,7 +29,7 @@ const PokemonCard: React.FC<Props> = ({ pokemon }) => {
         <div className="image">
           <img src={pokemon.image} alt={pokemon.name} />
         </div>
-        <div>
+        <div className="details">
           <strong>{pokemon.name}</strong>
           <p>{pokemon.types.map((type: Type) => type.label).join(', ')}</p>
           <div className="totalizer">{pokemon.maxCP}</div>
