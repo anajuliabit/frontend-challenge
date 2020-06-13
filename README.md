@@ -11,6 +11,7 @@ Acessar demo no [heroku](https://frontend-pokemons-challenge.herokuapp.com/)
 - React
 - Typescript
 - Styled Components
+- Apollo Client
 
 ## Rodando o projeto
 
