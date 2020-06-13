@@ -1,7 +1,7 @@
 // .eslintrc
 {
-  "plugins": ["prettier", "@typescript-eslint"],
-  "extends": ["airbnb-typescript", "react-app"],
+  "plugins": ["prettier", "@typescript-eslint", "react"],
+  "extends": ["prettier", "airbnb-typescript", "react-app", "eslint:recommended", "plugin:import/errors", "plugin:import/warnings"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -21,10 +21,19 @@
       "typescript": {
         "alwaysTryTypes": true
       }
-    }
+    },
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "tsx": true
+    },
+    "sourceType": "module"
   },
   "rules": {
+    "operator-linebreak": ["warn", "after"],
     "object-curly-spacing": ["warn", "always"],
+    "object-curly-newline": ["warn", "never"],
+    "implicit-arrow-linebreak": "off",
+    "no-param-reassign": ["warn", { "props": false }],
     "no-unused-vars": [
       "warn",
       {
@@ -40,15 +49,16 @@
       }
     ],
     "@typescript-eslint/no-explicit-any": [
-      "error",
+      "warn",
       {
         "ignoreRestArgs": true
       }
     ],
+    "@typescript-eslint/lines-between-class-members": ["error", { "exceptAfterOverload": true }],
     "max-len": [
       "warn",
       {
-        "code": 80,
+        "code": 100,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true,
         "ignoreComments": true
@@ -64,13 +74,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          "**/*.test.js",
-          "**/*.test.jsx",
-          "**/*.test.ts",
-          "**/*.test.tsx",
-          "src/tests/**/*"
-        ]
+        "devDependencies": ["**/*.test.js", "**/*.test.jsx", "**/*.test.ts", "**/*.test.tsx", "src/tests/**/*"]
       }
     ],
     "react/jsx-props-no-spreading": "off",

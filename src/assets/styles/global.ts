@@ -14,12 +14,19 @@ export default createGlobalStyle`
   }
   body, input, button {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-  }
- strong {
-    font-weight: bold;
   }
   button {
     cursor: pointer;
   }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 `;
