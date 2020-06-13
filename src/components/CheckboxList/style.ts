@@ -1,7 +1,18 @@
 import styled from 'styled-components';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 
-import { blue, borderColor, greyDark } from '../../assets/styles/colors';
+import { blue, borderColor, greyDark, grey } from '../../assets/styles/colors';
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & > span {
+    color: ${grey};
+    font-size: 14px;
+  }
+`;
 
 export const FormGroupCustom = styled(FormGroup)`
   row {

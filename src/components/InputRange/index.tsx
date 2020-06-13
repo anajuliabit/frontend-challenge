@@ -7,9 +7,11 @@ interface Props {
   handleChange: any;
   changeMin: any;
   changeMax: any;
+  min: number;
+  max: number;
 }
 
-const InputRange: React.FC<Props> = ({ value, handleChange, changeMin, changeMax }) => (
+const InputRange: React.FC<Props> = ({ value, handleChange, min, max, changeMin, changeMax }) => (
   <Container>
     <span>maxCP</span>
     <SliderCustom
@@ -24,8 +26,8 @@ const InputRange: React.FC<Props> = ({ value, handleChange, changeMin, changeMax
       classes={{ track: 'track', rail: 'rail', thumb: 'thumb' }}
     />
     <section>
-      <input type="number" value={value[0]} onChange={changeMin} />
-      <input type="number" value={value[value.length - 1]} onChange={changeMax} />
+      <input type="number" value={min} onChange={changeMin} />
+      <input type="number" value={max} onChange={changeMax} />
     </section>
   </Container>
 );

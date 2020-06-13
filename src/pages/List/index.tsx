@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
@@ -31,37 +31,12 @@ const POKEMONS = gql`
 const List = () => {
   const { loading, error, data } = useQuery(POKEMONS);
   const [range, setRange] = useState<number[]>([0, 4000]);
+  const [minCP, setMinCP] = useState<number>(0);
+  const [maxCP, setMaxCP] = useState<number>(4000);
   const [pokemons, setPokemons] = useState<Pokemon[]>((data && data.pokemons) || []);
   const [types, setTypes] = useState<Array<Type> | []>(Type.toArray());
 
-  useEffect(() => {
-    if (!loading && data) {
-      data.pokemons = data.pokemons.map((response: any) => {
-        response.types = (response.types || []).map((type: string) => Type.get(type.toUpperCase()));
-        return response;
-      });
-      setPokemons(data.pokemons);
-    }
-  }, [data, loading]);
-
-  // @TODO tratar erro
-  if (error) return <p>Error :(</p>;
-
-  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number[]): void => {
-    setRange(newValue as number[]);
-    applyFilter();
-  };
-
-  const handleTypesChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const newType: Type | undefined = types.find((t: Type) => t.key === event?.target?.name);
-    if (newType) {
-      newType.checked = event?.target?.checked;
-      setTypes([...types, newType]);
-      applyFilter();
-    }
-  };
-
-  const applyFilter = (): void => {
+  const applyFilter = useCallback((): void => {
     if (!loading && data) {
       setPokemons(
         data.pokemons.filter(
@@ -74,14 +49,48 @@ const List = () => {
         )
       );
     }
+  }, [data, loading, range, types]);
+
+  useEffect(() => {
+    if (!loading && data) {
+      data.pokemons = data.pokemons.map((response: any) => {
+        response.types = (response.types || []).map((type: string) => Type.get(type.toUpperCase()));
+        return response;
+      });
+      setPokemons(data.pokemons);
+    }
+  }, [data, loading]);
+
+  useEffect(() => {
+    if (minCP < maxCP) {
+      setRange([minCP, maxCP]);
+      applyFilter();
+    }
+  }, [minCP, maxCP, applyFilter]);
+
+  // @TODO tratar erro
+  if (error) return <p>Error :(</p>;
+
+  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number[]): void => {
+    setMinCP(newValue[0]);
+    setMaxCP(newValue[newValue.length - 1]);
   };
 
   const changeMin = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setRange(range.splice(0, 1, Number(event.target.value)));
+    setMinCP(Number(event.target.value));
   };
 
   const changeMax = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setRange(range.splice(range.length - 1, 1, Number(event.target.value)));
+    setMaxCP(Number(event.target.value));
+  };
+
+  const handleTypesChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newType: Type | undefined = types.find((t: Type) => t.key === event?.target?.name);
+    if (newType) {
+      newType.checked = event?.target?.checked;
+      setTypes([...types, newType]);
+      applyFilter();
+    }
   };
 
   return (
@@ -106,12 +115,12 @@ const List = () => {
           </>
         )}
       </Content>
-      <Content height="60vh" width="35vw">
+      <Content height="auto" width="35vw">
         <header>
           <h1>Filtro</h1>
         </header>
         <section className="filters">
-          <InputRange value={range} handleChange={handleRangeChange} changeMin={changeMin} changeMax={changeMax} />
+          <InputRange value={range} min={minCP} max={maxCP} handleChange={handleRangeChange} changeMin={changeMin} changeMax={changeMax} />
           <CheckboxList types={types} handleClick={handleTypesChange} />
         </section>
       </Content>

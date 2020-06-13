@@ -8,7 +8,7 @@ Este projeto foi desenvolvido para um desafio frontend cujo objetivo era obter o
 * Styled Components
 
 ## Rodando o projeto
-
+Certifique-se de ter o [Node](https://nodejs.org/en/docs/) instalado e estar usando a versão 12.x
 - Execute `npm i`
 - Execute `npm start`
 - O projeto disponível em http://localhost:3000
