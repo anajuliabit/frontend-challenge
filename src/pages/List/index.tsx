@@ -31,7 +31,7 @@ const POKEMONS = gql`
 `;
 
 const List:React.FC<{}> = () => {
-  // o que é data?
+  // qual é tipo de data?
   const { loading, error, data } = useQuery(POKEMONS);
   const [range, setRange] = useState<number[]>([0, 4000]);
   const [minCP, setMinCP] = useState<number>(0);
@@ -78,6 +78,7 @@ const List:React.FC<{}> = () => {
   // no caso essa funcão teria que ser alterada para se adequar agora ao componente que agora segue a tipagem dele
   const handleRangeChange: OnChangeProp = (_, newValue) => {
     setMinCP(newValue[0]);
+    // coloquei o ts-ignore aqui só pra nao dar erro de complicaçao no projeto
     // @ts-ignore
     setMaxCP(newValue[newValue.length - 1]);
   };
