@@ -4,6 +4,8 @@
 
 Primeiramente parabéns, o projeto ficou bem simples de rodar, apenas dois comandos e já deu tudo certo.
 
+O padrão de commits utilizado também foi bem legal, torna a leitura mais clean, boa =)
+
 O README ficou com uma estrutura bem legal, foi bem pontuado o que foi feito e o que não foi feito além de explicar sucintamente o objetivo do projeto e da onde foi buscado esses dados.
 
 ## Review do layout
