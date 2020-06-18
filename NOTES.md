@@ -20,6 +20,9 @@ Em geral ficou muito bom, tiveram algumas pequenas inconsistências (o que é no
 - O espaçamento entre os cards na horizontal está bem maior que o proposto, mais que o dobro aparentemente.
 - A fonte renderizada não é a Roboto conforme o projeto, pelo que vi também não foi importada no projeto.
 - A usuabilidade do filtro enquanto arrasta ficou bem travada, provavelmente pela forma em que os resultados eram renderizados.
+- Faltou colocar a versão na sidebar
+- A lista de pokemons não vai até o final da página
+- O detalhe do marcador em cima do range filter não está alinhado (Não está na UI proposta, mas foi implementado)
 
 ## Review do código
 
@@ -28,4 +31,4 @@ Pontos gerais notados:
 - Teve alguns any na tipagem do typescript, isso não nos ajuda muito
 - A query pra pegar os dados não foi tipada, então conteve mais um any ali na hora de mapear os pokemons, uma alternativa pra isso seria usar o codegen (https://graphql-code-generator.com/)
 - Achei bem legal como foi estruturado o ENUM do Type, parabéns =), só uma sugestão era colocar o valor default de checked como true, já que todos são, ai não precisaria repetir todas as vezes.
-- Bem massa ter colocado eslint no projeto, deixa bem mais padronizado =)
+- Bem massa ter colocado eslint no projeto, deixa bem mais padronizado =)/l/
