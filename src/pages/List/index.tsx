@@ -8,14 +8,16 @@ import { valueBelongSet } from '../../utils/valueBelongSet';
 import Sidebar from '../../components/Sidebar';
 import PokemonCard from '../../components/PokemonCard';
 import Pokemon from '../../shared/Pokemon';
-import InputRange from '../../components/InputRange';
+import InputRange, { OnChangeProp } from '../../components/InputRange';
 import CheckboxList from '../../components/CheckboxList';
 
 import { Container, Content } from './styles';
 import { blue } from '../../assets/styles/colors';
 import { Type } from '../../shared/Type';
 import { filterType } from '../../utils/filterType';
-
+// poderias separar a parte de queries em uma pasta em src/queries/pokemons.ts
+// se tiver um outro lugar do código (ok, agora estamos fazendo apenas uma landing page)
+// vais ter que repetir essa parte do código
 const POKEMONS = gql`
   {
     pokemons(first: 151) {
@@ -28,7 +30,8 @@ const POKEMONS = gql`
   }
 `;
 
-const List = () => {
+const List:React.FC<{}> = () => {
+  // o que é data?
   const { loading, error, data } = useQuery(POKEMONS);
   const [range, setRange] = useState<number[]>([0, 4000]);
   const [minCP, setMinCP] = useState<number>(0);
@@ -53,6 +56,7 @@ const List = () => {
 
   useEffect(() => {
     if (!loading && data) {
+      // aqui a response ficou como any justamente por nao ter a tipagem do que é pego do backend.
       data.pokemons = data.pokemons.map((response: any) => {
         response.types = (response.types || []).map((type: string) => Type.get(type.toUpperCase()));
         return response;
@@ -71,9 +75,10 @@ const List = () => {
 
   // @TODO tratar erro
   if (error) return <p>Error :(</p>;
-
-  const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, newValue: number[]): void => {
+  // no caso essa funcão teria que ser alterada para se adequar agora ao componente que agora segue a tipagem dele
+  const handleRangeChange: OnChangeProp = (_, newValue) => {
     setMinCP(newValue[0]);
+    // @ts-ignore
     setMaxCP(newValue[newValue.length - 1]);
   };
 
@@ -103,18 +108,18 @@ const List = () => {
             <Loader type="Oval" color={blue} />
           </div>
         ) : (
-          <>
-            <header>
-              <h1>Lista de pokémons</h1>
-              <strong>Total visíveis: {pokemons.length}</strong>
-            </header>
-            <section className="items">
-              {pokemons.map((pokemon: Pokemon) => (
-                <PokemonCard key={pokemon.number} pokemon={pokemon} />
-              ))}
-            </section>
-          </>
-        )}
+            <>
+              <header>
+                <h1>Lista de pokémons</h1>
+                <strong>Total visíveis: {pokemons.length}</strong>
+              </header>
+              <section className="items">
+                {pokemons.map((pokemon: Pokemon) => (
+                  <PokemonCard key={pokemon.number} pokemon={pokemon} />
+                ))}
+              </section>
+            </>
+          )}
       </Content>
       <Content height="auto" width="35vw" widthDesktop="40vw">
         <header>
